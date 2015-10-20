@@ -1,7 +1,13 @@
 class GroupsController < ApplicationController
+  before_action :require_login, only: [:show, :create, :destroy]
+
   def index
    @groups = Group.all.order(created_at: :desc)
-   @user = User.find(session[:user_id])
+    if session[:user_id] == nil
+      redirect_to "/sessions/new"
+    else
+      @user = User.find(session[:user_id])
+    end
   end
 
   def create
@@ -25,7 +31,10 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-    Group.find(params[:id]).destroy
+    group = Group.find(params[:id])
+    if group.user == User.find(session[:user_id])
+      group.destroy
+    end
     redirect_to "/groups"
   end
 
