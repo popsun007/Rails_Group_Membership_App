@@ -1,28 +1,7 @@
-== README
+Use EDD built this site in 3 hours from scratch.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here is a video for walking through the site: https://youtu.be/YXlmnnSKAdU
 
-Things you may want to cover:
+The wireframe is below:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+http://s3.amazonaws.com/General_V88/boomyeah/company_209/chapter_2865/handouts/chapter2865_3506_option-f-groups.png
