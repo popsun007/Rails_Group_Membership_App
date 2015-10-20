@@ -1,0 +1,43 @@
+
+<table>
+	<tr>
+		<td><h3>Group Name:</h3></td>
+		<td><h4><%= @group.name %></h4></td>
+		<td>
+			<% if UserGroup.find_by(user: current_user, group: @group) %>
+				<form action="/joins/<%= current_user.id %>" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="group_id" value="<%= @group.id %>">
+					<input type="submit" value="Leaving">
+				</form>
+			<% else %>
+				<form action="/joins" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="hidden" name="group_id" value="<%= @group.id %>">
+					<input type="submit" value="Join">
+				</form>
+			<% end %>
+		</td>
+	</tr>
+</table>
+
+<h4>Created by: <%= @group.user.first_name + " " + @group.user.last_name %></h4>
+<h3>Description:</h3>
+
+<p><%= @group.description %></p>
+
+<h3>All Members:</h3>
+<% @members_relational_ids.each do |r| %>
+	<% user = User.find(r.user_id) %>
+	<p><%= user.first_name + " " + user.last_name %></p>
+<% end %>
+
+
+
+
+
+
+
+
+

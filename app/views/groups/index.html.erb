@@ -1,0 +1,43 @@
+<h4><%= @user.first_name + " " + @user.last_name %></h4>
+
+<div style="margin: 30px 0 50px 50px">
+	<h4>Create Group</h4>
+	<form action="/groups" method="post">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+		<label for="name">Group Name</label>
+		<input type="text" id="name" name="group[name]">
+		<br>
+		<label for="description">Description</label>
+		<textarea id="description" name="group[description]"></textarea>
+		<br>
+
+		<input type="submit" value="Create">
+	</form>
+</div>
+
+<h3>Here are organizations you may jion:</h3>
+
+<% @groups.each do |g| %>
+<div style="margin-bottom: 15px">
+	<table>
+		<tr>
+			<td>
+				<h4><a href="/groups/<%= g.id %>"><%= g.name %></a></h4>
+			</td>
+			<td>
+			<% if g.user == User.find(session[:user_id]) %>
+				<form action="/groups/<%= g.id %>" method="post">
+					<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+					<input type="hidden" name="_method" value="delete">
+					<input type="submit" value="Delete">
+				</form>
+			<% end %>
+			</td>
+		</tr>
+	</table>
+	<p>Members: <%= g.user_groups.count %> </p>
+	<p><%= g.description %></p>
+	<p>--------------------</p>
+</div>
+<% end %>
+
