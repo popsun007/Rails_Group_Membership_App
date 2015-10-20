@@ -24,7 +24,17 @@ class GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
-    @members_relational_ids = @group.user_groups.all.order(created_at: :desc)
+    @members = @group.usersJoined
+    
+    #another way to show all members in a group:
+    # @members_relational_ids = @group.user_groups.all.order(created_at: :desc)
+
+    # in /view/groups/show.html.erb page :
+    # <% @members_relational_ids.each do |r| %>
+    #    <% user = User.find(r.user_id) %>
+    #    <p><%= user.first_name + " " + user.last_name %></p>
+    # <% end %>
+
   end
 
   def update

@@ -28,10 +28,9 @@
 <p><%= @group.description %></p>
 
 <h3>All Members:</h3>
-<% @members_relational_ids.each do |r| %>
-	<% user = User.find(r.user_id) %>
-	<p><%= user.first_name + " " + user.last_name %></p>
-<% end %>
+    <% @members.each do |m| %>
+      <p><%= m.first_name + " " + m.last_name %></p>
+    <% end %>
 
 
 

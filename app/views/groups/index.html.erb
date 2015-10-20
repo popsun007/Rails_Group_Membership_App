@@ -22,7 +22,7 @@
 	<table>
 		<tr>
 			<td>
-				<h4><a href="/groups/<%= g.id %>"><%= g.name %></a></h4>
+				<a href="/groups/<%= g.id %>"><%= g.name %></a>
 			</td>
 			<td>
 			<% if g.user == User.find(session[:user_id]) %>
@@ -36,7 +36,7 @@
 		</tr>
 	</table>
 	<p>Members: <%= g.user_groups.count %> </p>
-	<p><%= g.description %></p>
+	<p>Description:<%= g.description %></p>
 	<p>--------------------</p>
 </div>
 <% end %>
