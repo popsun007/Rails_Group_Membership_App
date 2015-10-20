@@ -1,6 +1,6 @@
 Use EDD built this site in 3 hours from scratch.
 
-Here is a video for walk through the site: https://youtu.be/YXlmnnSKAdU
+Here is a video for walking through the site: https://youtu.be/YXlmnnSKAdU
 
 The wireframe is below:
 
