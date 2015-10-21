@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 #for user
   get "/users/new" => "users#new"
+  get "/users/show" => "users#show"
 
   post "/users" => "users#create"
 
